@@ -1,16 +1,29 @@
-var app = require('express')(),
+var express = require('express'),
+    app = express(),
     server = require('http').createServer(app),
     io = require('socket.io').listen(server);
 
-server.listen(80);
+var port = process.env.PORT || 3333;
 
-app.get('/', function (req, res) {
+server.listen(port);
+
+app.configure( function(){
+  app.use(express.static(__dirname + '/public'));
+});
+
+app.get('/', function(req, res){
   res.sendfile(__dirname + '/public/index.html');
 });
 
+app.post('/', function(req, res){
+  console.log(req.body);
+});
+
+
 io.sockets.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
+  // socket is a reference to the single client.
+  // io.sockets is a reference to all clients.
+  socket.on('message', function (data) {
+    io.sockets.emit('message', data);
   });
 });

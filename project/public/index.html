@@ -1,10 +1,63 @@
 <html>
-  <script src="/socket.io/socket.io.js"></script>
-  <script>
-    var socket = io.connect('http://localhost');
-    socket.on('news', function (data) {
-      console.log(data);
-      socket.emit('my other event', { my: 'data' });
-    });
-  </script>
+  <head>
+    <title>Learn2WebSockets - Chat</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="/css/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <div class="container">
+
+      <div class="row">
+        <div class="span12">
+          <div class="jumbotron subhead">
+            <h1>WebSockets Demo: Chat</h1>
+          </div>
+        </div>
+
+        <div class="span12">
+          <div class="well" id="chat">
+          </div>
+        </div>
+
+        <div class="span12">
+          <form action="/" method="POST" class="form-inline" id="chatForm">
+            <label for="chatName">Name</label>
+            <input name="chatName" id="chatName" />
+            <br />
+            <label for="chatMessage">Message</label>
+            <input name="chatMessage" id="chatMessage" />
+            <button type="submit" class="btn btn-primary">Chat</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" />
+    <script src="/js/bootstrap.min.js"></script>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+      $(function(){
+        var socket = io.connect('http://localhost');
+
+        socket.on('message', function (data) {
+          $("#chat").append("<p><strong>" + data.name + "</strong>:" + data.message + "</p>");
+        });
+
+        $("#chatForm").bind("submit", function(e){
+          e.preventDefault();
+
+          var $nameInput = $("#chatName"),
+              $messageInput = $("#chatMessage");
+
+          socket.emit('message', { message: $messageInput.val(), name: $nameInput.val() });
+
+          $messageInput.val('');
+        });
+      })
+    </script>
+  </body>
 </html>
