@@ -1,0 +1,200 @@
+<!doctype html>  
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>reveal.js - The HTML Presentation Framework</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/simple.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <p>Do this thing to follow along</p>
+          <h3>brew install node <small>OSX</small></h3>
+          <h3>go to nodejs.org <small>Windows</small></h3>
+          <h3>apt-get install node <small>Ubuntu</small></h3>
+        </section>
+
+        <section>
+          <h1>Starting with WebSockets </h1>
+          <h3>A Workshop</h3>
+        </section>
+
+        <section>
+          <h2>Agenda</h2>
+          <ol>
+            <li>That first slide again, explained
+            <li>Short presentation: intro to Websockets
+            <li>Overview of base code
+            <li>???
+            <li>Parties
+          </ol>
+
+          <aside class="notes">
+            Explain that installing node now will help with later. Presentation is loose: it's the last
+            one on Monday night, so people only should stick around as long as they're interested. We're
+            going to go over what they are, how to get set up, work on a sample app, and stick around for
+            questions.
+          </aside>
+        </section>
+
+        <section>
+          <h2>Jack Lawson</h2>
+          <h3>@ajacksified <small>on <a href="http://twitter.com/ajacksified" target="_blank">twitter</a> &amp; <a href="https://github.com/ajacksified" target="_blank">github</a></small></h3>
+          <h3>Engineer at Airbnb <small>ps: we're hiring</small></small></h3>
+
+          <a class="image" href="http://www.thejacklawson.com/" target="_blank">
+            <img width="200" height="200" src="http://www.gravatar.com/avatar/a29db26f9fdc4d5a689d894507c84edc.png?s=200" alt="Jack Lawson">
+          </a>
+
+          <aside class="notes">
+            Frontend engineer doing all kinds of neat things at Airbnb, like coffeescript and Backbone.
+            Also interested in Web Gaming.
+          </aside>
+        </section>
+
+        <section>
+          <h2>Gaming?</h2>
+          <p>Good time for gaming in the browser</p>
+          <ul>
+            <li class="fragment">Audio API
+            <li class="fragment">WebGL, Canvas
+            <li class="fragment">Pointer lock
+            <li class="fragment">Good browsers to implement it all
+            <li class="fragment">(WebSockets)
+          </ul>
+
+          <aside class="notes">
+            Audio api, webgl / canvas, pointer lock, good browsers
+          </aside>
+        </section>
+
+
+        <section>
+          <h2>But Also, Other Uses</h2>
+          <ul>
+            <li>Airbnb - Internal Tools
+            <li>CMS - collaborative editing
+            <li>Support chats
+            <li>Analytics
+          </ul>
+        </section>
+
+        <section>
+          <h2>But, These Things Existed Before WebSockets</h2>
+          <ul>
+            <li class="fragment">Oracle™ Java&reg; Applets
+            <li class="fragment">Flash and Silverlight applications
+            <li class="fragment">Comet connections
+            <li class="fragment">Ajax polling (my personal favorite)
+          </ul>
+        </section>
+
+        <section>
+          <h2>WebSockets Are...</h2>
+        </section>
+
+        <section>
+          <h2>WebSockets Are Bidirectional &amp; Full Duplex</h2>
+          <p>
+            The client is connected to the server, and the server is connected to the client, and can
+            send data at the same time.
+          </p>
+        </section>
+
+        <section>
+          <h2>WebSockets Are Secure</h2>
+          <p>
+            WebSocket connections are secured with a handshake and masking, and also support SSL.
+          </p>
+        </section>
+
+        <section>
+          <h2>WebSockets Are Simple</h2>
+          <pre><code contenteditable>
+socket = new WebSocket("ws://echo.websocket.org/");
+          </code></pre>
+
+          <aside class="notes">
+            socket.onopen = function(){ } <br />
+            socket.onclose = function(){ } <br />
+            socket.onerror = function(e){ } <br />
+            socket.onmessage = function(){ } <br />
+          </aside>
+        </section>
+
+        <section>
+          <h2>Let's Do a WebSocket</h2>
+
+          <p>
+            Project:
+            <a href="https://github.com/ajacksified/websockets-workshop" target="_blank">github.com/ajacksified/websockets-workshop</a>
+          </p>
+
+          <p>
+            Example:
+            (npm start / <a href="http://localhost:3333" target="_blank">localhost:3333</a>)
+          </p>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/zoom-js/zoom.js', condition: function() { return !!document.body.classList; } },
+          { src: '/socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+          { src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>

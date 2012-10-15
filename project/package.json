@@ -1,0 +1,26 @@
+{
+  "name": "websockets-demo-app",
+  "description": "a demo for leaning 2 websockets",
+  "version": "0.0.1",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha --compilers coffee:coffee-script"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ajacksified/websockets-workshop.git"
+  },
+  "dependencies": {
+    "express": ">= 3.0.0rc5",
+    "socket.io": ">= 0.9.10"
+  },
+  "devDependencies": {
+    "mocha": "1.3.x",
+    "should": "1.1.x"
+  },
+  "engines": {
+    "node": ">= 0.8.11",
+    "npm":  ">= 1.1.49"
+  }
+}
