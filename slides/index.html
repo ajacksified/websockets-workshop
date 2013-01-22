@@ -37,13 +37,6 @@
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
         <section>
-          <p>Preparation for Later</p>
-          <h3>brew install node <small>OSX</small></h3>
-          <h3>nodejs.org <small>Windows</small></h3>
-          <h3>apt-get install node <small>Ubuntu</small></h3>
-        </section>
-
-        <section>
           <h1>Starting with WebSockets </h1>
           <h3>A Workshop</h3>
         </section>
@@ -54,14 +47,10 @@
             <li>Short presentation: intro to Websockets
             <li>Overview of base code
             <li>Questions and maybe some livecoding
-            <li>Parties
           </ol>
 
           <aside class="notes">
-            Presentation is loose: it's the last
-            one on Monday night, so people only should stick around as long as they're interested. We're
-            going to go over what they are, how to get set up, work on a sample app, and stick around for
-            questions. Explain that installing node now will help with later. 
+            Interactive, encourage questions.
           </aside>
         </section>
 
@@ -104,7 +93,7 @@
             <li>Airbnb - Internal Tools
             <li>CMS - collaborative editing
             <li>Support chats
-            <li>Analytics
+            <li>Live Analytics
           </ul>
         </section>
 
@@ -127,7 +116,7 @@
           <h2>WebSockets Are Bidirectional &amp; Full Duplex</h2>
           <p>
             The client is connected to the server, and the server is connected to the client, and can
-            send data at the same time.
+            send data at the same time over TCP.
           </p>
         </section>
 
@@ -169,9 +158,12 @@ socket = new WebSocket("ws://echo.websocket.org/");
             <a href="https://github.com/ajacksified/websockets-workshop" target="_blank">github.com/ajacksified/websockets-workshop</a>
           </p>
 
+          <h4>brew install node <small>OSX</small></h4>
+          <h4>nodejs.org <small>Windows</small></h4>
+          <h4>apt-get install node <small>Ubuntu</small></h4>
+
           <p>
-            Example:
-            (npm start / <a href="http://localhost:3333" target="_blank">localhost:3333</a>)
+            npm start, then visit <a href="http://localhost:3333" target="_blank">localhost:3333</a>
           </p>
         </section>
       </div>
