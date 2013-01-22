@@ -45,8 +45,8 @@
           <h2>Agenda</h2>
           <ol>
             <li>Short presentation: intro to Websockets
-            <li>Overview of base code
-            <li>Questions and maybe some livecoding
+            <li>Overview of demo code
+            <li>Q&amp;A, and maybe some livecoding
           </ol>
 
           <aside class="notes">
@@ -137,7 +137,9 @@ socket = new WebSocket("ws://echo.websocket.org/");
             socket.onopen = function(){ } <br />
             socket.onclose = function(){ } <br />
             socket.onerror = function(e){ } <br />
-            socket.onmessage = function(){ } <br />
+            socket.onmessage = function(e){ } <br />
+            socket.send(data) <br />
+            socket.close() <br />
           </aside>
         </section>
 
