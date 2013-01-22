@@ -15,11 +15,6 @@ app.get('/', function(req, res){
   res.sendfile(__dirname + '/public/index.html');
 });
 
-app.post('/', function(req, res){
-  console.log(req.body);
-});
-
-
 io.sockets.on('connection', function (socket) {
   // socket is a reference to the single client.
   // io.sockets is a reference to all clients.

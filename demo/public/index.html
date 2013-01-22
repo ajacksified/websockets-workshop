@@ -46,10 +46,6 @@
             $nameInput = $("#chatName"),
             $messageInput = $("#chatMessage");
 
-        socket.on('message', function (data) {
-          $("#chat").append("<p><strong>" + data.name + "</strong>: " + data.message + "</p>");
-        });
-
         $("#chatForm").bind("submit", function(e){
           var message = $messageInput.val(),
               name = $nameInput.val();
@@ -60,6 +56,10 @@
             socket.emit('message', { message: message, name: name });
             $messageInput.val('');
           }
+        });
+
+        socket.on('message', function (data) {
+          $("#chat").append("<p><strong>" + data.name + "</strong>: " + data.message + "</p>");
         });
       })
     </script>
